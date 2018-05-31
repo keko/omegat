@@ -82,7 +82,7 @@ public class VersionCheckPanel extends javax.swing.JPanel {
 
         message.setEditable(false);
         message.setLineWrap(true);
-        message.setText(OStrings.getString("DND_FILE_COLLISION_MESSAGE")); // NOI18N
+        message.setText(OStrings.getString("VERSION_CHECK_OUT_OF_DATE")); // NOI18N
         message.setWrapStyleWord(true);
         message.setDragEnabled(false);
         message.setFocusable(false);
