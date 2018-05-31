@@ -81,6 +81,7 @@ public class VersionCheckPanel extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.BorderLayout(10, 0));
 
         message.setEditable(false);
+        message.setFont(jPanel1.getFont());
         message.setLineWrap(true);
         message.setText(OStrings.getString("VERSION_CHECK_OUT_OF_DATE")); // NOI18N
         message.setWrapStyleWord(true);
