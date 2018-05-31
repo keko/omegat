@@ -30,6 +30,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -90,7 +91,7 @@ public final class VersionChecker {
         }
         mProps = props;
         lastFetched = System.currentTimeMillis();
-        LOGGER.fine("Fetched latest version info: " + props);
+        LOGGER.log(Level.FINE, "Fetched latest version info: {0}", props);
     }
 
     public int compareVersions() throws Exception {
@@ -105,7 +106,7 @@ public final class VersionChecker {
         if (result) {
             LOGGER.fine("OmegaT is up to date");
         } else {
-            LOGGER.fine("A newer version of OmegaT is available: " + getRemoteVersion());
+            LOGGER.log(Level.FINE, "A newer version of OmegaT is available: {0}", getRemoteVersion());
         }
         return result;
     }
