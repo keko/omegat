@@ -6,7 +6,7 @@
  Copyright (C) 2014 Alex Buloichik, Didier Briel
                2019 Aaron Madlon-Kay
                Home page: http://www.omegat.org/
-               Support center: http://groups.yahoo.com/group/OmegaT/
+               Support center: https://omegat.org/support
 
  This file is part of OmegaT.
 
@@ -141,13 +141,14 @@ public class ImportFromAutoTMX {
             if (p.getType().equals(ProjectTMX.PROP_FILE)) {
                 hasFileProp = true;
             } else if (p.getType().equals(ProjectTMX.PROP_ID)
+                    || p.getType().equals(ProjectTMX.ATTR_TUID)
                     || p.getType().equals(ProjectTMX.PROP_NEXT)
                     || p.getType().equals(ProjectTMX.PROP_PATH)
                     || p.getType().equals(ProjectTMX.PROP_PREV)) {
                 hasOtherProp = true;
             }
         }
-        return EntryKey.isIgnoreFileContext() ? hasFileProp && hasOtherProp : hasFileProp;
+        return EntryKey.isIgnoreFileContext() ? hasOtherProp : hasFileProp;
     }
 
     private boolean altTranslationMatches(PrepareTMXEntry entry, EntryKey key) {
@@ -159,6 +160,9 @@ public class ImportFromAutoTMX {
             if (ProjectTMX.PROP_FILE.equals(p.getType())) {
                 file = p.getValue();
             } else if (ProjectTMX.PROP_ID.equals(p.getType())) {
+                id = p.getValue();
+            } else if (ProjectTMX.ATTR_TUID.equals(p.getType()) && id == null) {
+                // Use @tuid as fallback when id prop is not available
                 id = p.getValue();
             } else if (ProjectTMX.PROP_NEXT.equals(p.getType())) {
                 next = p.getValue();

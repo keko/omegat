@@ -5,7 +5,7 @@
 
  Copyright (C) 2018 Enrique Estevez Fernandez
                Home page: http://www.omegat.org/
-               Support center: http://groups.yahoo.com/group/OmegaT/
+               Support center: https://omegat.org/support
 
  This file is part of OmegaT.
 
@@ -137,8 +137,7 @@ public class MoodlePHPFilter extends AbstractFilter {
             }
             if (c == quotes && previousChar == '\\') {
                 previousChar = 0;
-            }
-            else {
+            } else {
                 previousChar = c;
             }
         }
